@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Monceau CF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    /* ===== HEADER / LOGO / NAV ===== */
+    #header {
+      width: 100%;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    #logo img {
+      display: block;
+      margin: 0 auto;
+      width: 325px;
+      max-width: 325px;
+      height: auto;
+    }
+
+    #topNav {
+      margin-top: 18px;
+    }
+
+    #topNav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #topNav li {
+      display: inline-block;
+      margin: 0 12px;
+    }
+
+    #topNav a {
+      color: #575757;
+      text-transform: uppercase;
+      font-weight: 300;
+      text-decoration: none;
+      letter-spacing: 1px;
+      font-size: 13px;
+      font-family: futura-pt, Arial, Helvetica, sans-serif;
+    }
+
+    #topNav a:hover {
+      opacity: 0.7;
+    }
+
+    /* ===== GALLERY ===== */
+    .gallery {
+      margin-top: 60px;
+    }
+
+    /* monceau.png orizzontale full */
+    .gallery .full img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 64px;
+    }
+
+    /* coppie: 1 sx + 1 dx */
+    .gallery .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+      align-items: end;
+    }
+
+    /* BOX uguale per tutte le immagini */
+    .img-box {
+      height: 720px;           /* invariato */
+      width: 100%;
+      overflow: hidden;        /* necessario per crop */
+    }
+
+    /* default: niente crop (contain) + appoggio in basso */
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      object-position: bottom center;
+    }
+
+    /* ===== SOLO MONCEAU5: micro zoom + crop controllato ===== */
+    .monceau5 img {
+      transform: scaleX(1.04) scale(1.06);          /* <-- QUI è il “pizzico” (prova 1.04–1.08) */
+      transform-origin: bottom center; /* zoom dal basso così resta allineata sotto */
+    }
+
+    /* Mobile: torna naturale */
+    @media (max-width: 768px) {
+      .gallery .two-col {
+        grid-template-columns: 1fr;
+      }
+      .img-box {
+        height: auto;
+      }
+      .img-box img {
+        width: 100%;
+        height: auto;
+        object-fit: initial;
+        object-position: initial;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header id="header">
+  <div id="logo">
+    <a href="index.html">
+      <img src="../images.squarespace-cdn.com/content/v1/578bbbc546c3c4caeeca2291/23d8f6a2-5cbf-4fdf-a7b8-54ed70ed6710/KBS_Logo_horizontalb469.png?format=1000w" alt="kellybehun | STUDIO">
+    </a>
+  </div>
+
+  <div id="topNav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="interieur.html">Intérieur</a></li>
+      <li><a href="ephemere.html">Éphémère</a></li>
+      <li><a href="rehabilitation.html">Réhabilitation</a></li>
+      <li><a href="press.html">Press</a></li>
+      <li><a href="studio.html">Studio</a></li>
+      <li><a href="instagram.html">Instagram</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="container">
+  <div class="gallery">
+
+    <!-- orizzontale -->
+    <div class="full">
+      <img src="images/monceau/monceau.png" alt="">
+    </div>
+
+    <!-- riga 1 -->
+    <div class="two-col">
+      <div class="img-box">
+        <img src="images/monceau/monceau2.png" alt="">
+      </div>
+      <div class="img-box">
+        <img src="images/monceau/monceau3.png" alt="">
+      </div>
+    </div>
+
+    <!-- riga 2 -->
+    <div class="two-col">
+      <div class="img-box">
+        <img src="images/monceau/monceau4.png" alt="">
+      </div>
+
+      <!-- SOLO QUI: monceau5 micro zoom + crop vero -->
+      <div class="img-box monceau5">
+        <img src="images/monceau/monceau5.png" alt="">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
